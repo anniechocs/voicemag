@@ -28,7 +28,30 @@
 	</div><!-- .entry-content -->
 	<div class="clearfix"></div>
 	
-	<footer class="entry-meta">
+	<footer class="entry-meta row post-footer">
+
+		<?php   get_template_part( 'template-parts/breadcrumbs' );
+		echo "\n\n"; ?>
+		<h4>See also:</h4>
+
+<?php
+if ( $post->post_parent ) {
+    $children = wp_list_pages( array(
+        'title_li' => '',
+        'child_of' => $post->post_parent,
+        'exclude' => $post->ID,
+        'echo'     => 0
+    ) );
+} 
+ 
+if ( $children ) : ?>
+    <h2><?php echo $title; ?></h2>
+    <ul class="see-also also-whatson">
+        <?php echo  $children; ?>
+    </ul>
+<?php endif; ?>
+
+
 		<?php bootstrapBasicEditPostLink(); ?> 
 	</footer>
 <!-- 	<div class="clearfix"></div> -->

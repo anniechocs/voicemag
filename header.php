@@ -75,11 +75,6 @@
 
 		</div> <!-- end header container .row -->
 
-		<div class="row main-navigation">
-		<div class="col-xs-12">
-
-		</div>
-	</div><!--.main-navigation-->
 
 		</header>
 			

@@ -123,3 +123,31 @@ table.em-calendar {
     display: block;
     margin: auto;
 }
+
+.css-locations-list{
+    @include clearfix;
+    
+}
+
+.em-pagination{
+    display: block;
+    clear:left;
+    margin: 20px;
+    &:before {
+        font-size: 1.2em;
+        content: 'Pages:';
+    }
+    .page-numbers{
+        padding: 5px;
+        font-size: 1.2em;
+        &.current{
+            background-color: $contr-lt;
+        }
+    }
+}
+
+/* BREADCRUMBS WIHT NAVXT PLUGIN */
+
+.breadcrumbs {
+    margin: 0 10px 20px 10px;
+}

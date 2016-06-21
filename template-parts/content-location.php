@@ -2,26 +2,15 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
-							<?php		$EM_Event = em_get_event($post->ID, 'post_id'); ?>
+							<?php		$EM_Location = em_get_location($post->ID, 'post_id'); ?>
 	<div class="entry-content">
 		<div class="row row-with-vspace">
 	<div id="event-left" class="col-sm-6">	
 
-			<?php 	if ( has_post_thumbnail() ):
-			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+			<div class="event-image-holder">
+				<?php echo $EM_Location->output('#_LOCATIONMAP'); ?> 
+			</div>
 
-			list($width, $height) = getimagesize($url);
-			if ($width > $height): ?>
-			   	<div class="event-img-holder">
-					<img class="event-thmb-horiz" src="<?php echo $url; ?>"> 
-				</div>
-			<?php else:?>
-			   	<div class="event-img-holder">
-					<img class="event-thmb-vert" src="<?php echo $url; ?>"> 
-				</div>
-			<?php endif;	?>
-
-			<?php endif; ?>
 		</div> <!-- end #event-left -->
 		<div id="event-right" class="col-sm-6">
 				<?php 
@@ -34,46 +23,38 @@
 				$field = "tickets";
 				$tickets =  get_post_meta($post->ID, $field, true);	?>
 			<dl class="inline-deflist">
-			  <dt>Date: </dt>
-			  <dd><?php echo $EM_Event->output('#_EVENTDATES') . "&nbsp;" ; ?> </dd>
-
-			<?php if ($EM_Event->output('#_EVENTTIMES') != '12:00 am'): ?>
-			<dt>Time: </dt>
-			<dd><?php  echo $EM_Event->output('#_EVENTTIMES'); ?></dd>
-			<?php endif; ?>
-			<?php if(!empty($EM_Event->location_id)): ?>
-				<dt>Location: </dt>
-				<dd>
-				<a href="<?php 	echo $EM_Event->output('#_LOCATIONURL'); ?>">
-				 <?php echo $EM_Event->output('#_LOCATIONNAME'); ?></a> </dd>
-			<?php elseif($altplace != ''): ?>	
-				<dt>Takes place: </dt>
-				<dd><?php echo $altplace; ?></dd> 
-			<?php endif; ?> 
+			<dt>Address: </dt>
+			  <dd><?php echo $EM_Location->output('#_LOCATIONFULLBR') . "&nbsp;" ; ?> </dd>
+		
 			</dl>
-
-			<dl class="inline-deflist">
+			<dl>
 			<?php if ($contactphone != ''): ?> 
 				<dt>Contact: </dt><dd><?php echo $contactphone; ?></dd>	
 			<?php endif; ?>
 			<?php if ($contacturl != ''): ?> 
 				<dt>Visit: </dt><dd><?php echo $contacturl; ?></dd>
 			<?php endif; ?>
-			<?php if ($tickets != ''): ?> 
-				<dt>Tickets: </dt><dd><?php echo $tickets; ?></dd>
-			<?php endif; ?>
 			</dl>
 
 	</div> <!-- end #event-left -->
 	</div>  <!--end row -->
 
+
+	<div  class="row">
+		<section class="event-notes big-list">
+			<h2>Upcoming Events</h2>
+				<?php echo $EM_Location->output('#_LOCATIONNEXTEVENTS'); ?> 
+
+		</section>
+	</div> <!-- end .row-->
+
+
 	<div  class="row">
 		<section class="event-notes">
-				<?php echo $EM_Event->output('#_EVENTNOTES'); ?> 
+				<?php echo $EM_Location->output('#_LOCATIONNOTES'); ?> 
 
-			<div class="event-image-holder">
-				<?php  echo $EM_Event->output('#_LOCATIONMAP'); ?> 
-			</div>
+
+
 		</section>
 	</div> <!-- end .row-->
 
@@ -90,8 +71,6 @@
 			'separator' => ''
 		));
 		?>
-
-
 	</div><!-- .entry-content -->
 	<div class="clearfix"></div>
 	
@@ -99,11 +78,7 @@
 
 		<?php   get_template_part( 'template-parts/breadcrumbs' );
 		echo "\n\n"; ?>
-		<h4>See also:</h4>
-			<ul class="see-also">
-				<li><?php  previous_post_link('%link', ' %title ', FALSE); ?></li>
-				<li><?php next_post_link('%link', ' %title', FALSE); ?></li>
-			</ul>
+
 		<?php bootstrapBasicEditPostLink(); ?> 
 	</footer>
 <!-- 	<div class="clearfix"></div> -->

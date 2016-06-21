@@ -1,24 +1,28 @@
-<!-- AREA ABOVE THE SIDEBAR -->
+<!-- this template part and corresponding page page-locationlist.php are not needed
+ 	as everything can be set in events > settings > formatting > locations  -->
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header home-page-header">
+	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 
-		<div class="row feature-row">	
 
-			<?php 
-				$this_page_id=$wp_query->post->ID; 
-				$args1 = array(
-				'posts_per_page'=>3,
-				'post_type'=>'page',
-				'order'=>'ASC',
-				'orderby'=>'name',
-				'post_parent'=>$this_page_id,
-				);
-			?>
+		<!--as on homepage, we create a row of links to subpages, for each area -->		
+<div class="row row-with-vspace">
+
+	<?php 
+		$this_page_id=$wp_query->post->ID; 
+		$args1 = array(
+		'posts_per_page'=>3,
+		'post_type'=>'page',
+		'order'=>'ASC',
+		'orderby'=>'name',
+		'post_parent'=>$this_page_id,
+		);
+	?>
 
 			<?php $query1 = new WP_Query( $args1);
 	               
@@ -36,7 +40,7 @@
 												 	<img src="<?php echo $url; ?>"> 
 												 </a>	
 												 <a class="feature-title" href="<?php the_permalink(); ?>" title="<?php echo the_title(); ?>" >	
-													<h2> <?php the_title() ?> </h2>
+													<h2> <?php the_title() ?></h2>
 												</a>
 												</div>
 											<?php endif; ?>	
@@ -46,10 +50,28 @@
 
 									<?php }   // end of while for query
 										wp_reset_postdata(); ?>
-		</div> <!-- .row -->
 
+</div> <!-- .row -->
 
-	</div><!-- .entry-content -->
+<div class="row">
+		<?php the_content(); ?>
+</div>
+
+<?php bootstrapBasicPagination(); ?> 
+
+		<div class="clearfix"></div>
+		<?php
+		/**
+		 * This wp_link_pages option adapt to use bootstrap pagination style.
+		 * The other part of this pager is in inc/template-tags.php function name bootstrapBasicLinkPagesLink() which is called by wp_link_pages_link filter.
+		 */
+		wp_link_pages(array(
+			'before' => '<div class="page-links">' . __('Pages:', 'bootstrap-basic') . ' <ul class="pagination">',
+			'after'  => '</ul></div>',
+			'separator' => ''
+		));
+		?>
+</div><!-- .entry-content -->
 	<div class="clearfix"></div>
 	
 	<footer class="entry-meta">

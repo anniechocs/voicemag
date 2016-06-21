@@ -11,36 +11,38 @@ footer {
             a {
                 color: white;
             }
+            ul {
+                padding-left: 0;
+                padding-bottom: 15px;
+            }
+            li {
+               display: inline;
+                margin: 5px 10px;
+            }    
     }
-    #mma-copyright {
-        h3 {
-            text-align: center;
-            margin-top:5px;
-            color: white;
-        }
-    }
-    #top-page-link {
-        float: right;
-        padding-right: 30px;
-    }
-    #dev-by {
-        clear: both;
-        text-align: center;
-        margin-top: 15px;
-        color: $vltgrey;
-        a {
-            color:$ltgrey;
-        }
-    }
+
     .widget_nav_menu {
         margin-left: 20px;
     }
-    ul {
-        padding-left: 0;
-        padding-bottom: 15px;
+}
+
+#mma-copyright {
+    h3 {
+        text-align: center;
+        margin-top:5px;
+        color: white;
     }
-    li {
-       display: inline;
-        margin: 5px 10px;
+}
+#top-page-link {
+    float: right;
+    padding-right: 30px;
+}
+#dev-by {
+    clear: both;
+    text-align: center;
+    margin-top: 15px;
+    color: $vltgrey;
+    a {
+        color:$ltgrey;
     }
 }

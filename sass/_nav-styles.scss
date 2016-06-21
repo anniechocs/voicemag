@@ -61,9 +61,6 @@
             border: none;
             background-image: none;
             background-color: white;
-           // padding: 5px;
-            //padding-left: 15px;
-            //color: $base-col;
         }
     } 
     
@@ -124,14 +121,13 @@ nav {
     .navbar-default .navbar-nav > .open > a {
         background-image: none;
         background-color: white;
-        border-bottom: 7px solid $contr-col;
     }
     
     .navbar-header{
         background-color: $base-col;
         border-radius: 4px;
         button {
-          // background-color: lighten($base-col,15%); 
+            background-color: lighten($base-col,15%); 
         }
     }
     

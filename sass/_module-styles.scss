@@ -79,6 +79,13 @@ img {
     border-radius: 4px;
 }
 
+@mixin grey-box {
+    background: $vltgrey;
+    padding: 8px 15px;
+    border: 1px solid $ltgrey;
+    border-radius: 6px; 
+}
+
 @mixin single-note-mixin {
         @include small-border;
         margin-bottom: 10px;
@@ -325,10 +332,23 @@ img {
 
 /************* LISTS ****************/
 
+@mixin plain-list {
+        ul {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+    li {
+        list-style: none;
+        padding: 0 0 5px 0;
+    }
+}
+
 /* DEFINITION LISTS */
 
+.inline-deflist{
 dt,dd {
        padding: 1px 10px; 
+        display: inline-block;
 }
   dt {
     float: left;
@@ -339,19 +359,27 @@ dt,dd {
     font-weight: bold;
     color: $base-col;
   }
+    
+    dd{
+        float: left;
+    }
+}
 
 .list-box {
+    @include plain-list;
     h4 {
         margin: 10px 0 5px 10px;
     }
-    ul {
-        margin-left: 10px;
-        padding-left: 10px;
-    }
     li {
-        list-style: none;
         padding: 0 0 5px 0;
         font-size: 0.85em;
+    }
+}
+
+.location-list {
+    @include plain-list;
+    li {
+        font-size: 1em;
     }
 }
 

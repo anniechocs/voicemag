@@ -80,7 +80,7 @@ body {
   min-height: 100%; }
   body a {
     color: #678234; }
-    body a:hover {
+    body a:hover, body a:focus, body a:active {
       color: #8db147; }
 
 body {
@@ -100,7 +100,7 @@ body {
 
 h1 {
   font-family: Rockwell, 'Courier Bold',  Georgia, Times, 'Times New Roman', serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #555; }
 
 h2 {
@@ -118,8 +118,9 @@ h3 {
     color: #8db147; }
 
 h4 {
-  color: #678234;
-  font-size: 1.4rem; }
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 600; }
 
 table {
   border-collapse: collapse; }
@@ -452,25 +453,38 @@ img {
 
 /************* LISTS ****************/
 /* DEFINITION LISTS */
-dt, dd {
-  padding: 1px 10px; }
-
-dt {
+.inline-deflist dt, .inline-deflist dd {
+  padding: 1px 10px;
+  display: inline-block; }
+.inline-deflist dt {
   float: left;
   clear: left;
   text-align: right;
   font-weight: bold;
   color: #678234; }
+.inline-deflist dd {
+  float: left; }
 
-.list-box h4 {
-  margin: 10px 0 5px 10px; }
 .list-box ul {
   margin-left: 10px;
   padding-left: 10px; }
 .list-box li {
   list-style: none;
+  padding: 0 0 5px 0; }
+.list-box h4 {
+  margin: 10px 0 5px 10px; }
+.list-box li {
   padding: 0 0 5px 0;
   font-size: 0.85em; }
+
+.location-list ul {
+  margin-left: 10px;
+  padding-left: 10px; }
+.location-list li {
+  list-style: none;
+  padding: 0 0 5px 0; }
+.location-list li {
+  font-size: 1em; }
 
 ul.button-list li {
   list-style: none;
@@ -555,11 +569,12 @@ nav #menu-primary.navbar-nav LI.active A {
 nav .navbar-default .navbar-nav > .active > a,
 nav .navbar-default .navbar-nav > .open > a {
   background-image: none;
-  background-color: white;
-  border-bottom: 7px solid #ced54b; }
+  background-color: white; }
 nav .navbar-header {
   background-color: #678234;
   border-radius: 4px; }
+  nav .navbar-header button {
+    background-color: #92b74c; }
 
 /****** RESET NAV STYLES *********/
 nav#reset-style.navbar-default {
@@ -1312,9 +1327,6 @@ ul.header-mag-list {
 
 /*************** P O S T S ****************/
 /* Don't show meta data on posts or comments*/
-.entry-meta, .entry-meta-category-tag, #comments {
-  display: none; }
-
 /*************  CATEGORY (archive) PAGES ***********/
 .archive-list .page-header {
   padding-bottom: 9px;
@@ -1326,6 +1338,26 @@ ul.header-mag-list {
   margin: 0; }
   .archive-list article header h1 a, .archive-list h1.entry-title a {
     color: #678234; }
+
+/******* POST FOOTER *************/
+.post-footer {
+  background: #f8f8f8;
+  padding: 8px 15px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin: 20px 0; }
+  .post-footer h4 {
+    margin-left: 20px; }
+
+ul.see-also ul {
+  margin-left: 10px;
+  padding-left: 10px; }
+ul.see-also li {
+  list-style: none;
+  padding: 0 0 5px 0; }
+
+.also-whatson li a:before {
+  content: 'What\'s On '; }
 
 /* STYLES FOR PLUGINS */
 /********** MY SHORT CODES *************/
@@ -1465,6 +1497,28 @@ table.em-calendar {
   display: block;
   margin: auto; }
 
+.css-locations-list:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.em-pagination {
+  display: block;
+  clear: left;
+  margin: 20px; }
+  .em-pagination:before {
+    font-size: 1.2em;
+    content: 'Pages:'; }
+  .em-pagination .page-numbers {
+    padding: 5px;
+    font-size: 1.2em; }
+    .em-pagination .page-numbers.current {
+      background-color: #e5e89e; }
+
+/* BREADCRUMBS WIHT NAVXT PLUGIN */
+.breadcrumbs {
+  margin: 0 10px 20px 10px; }
+
 /*******  FOOTER   ********/
 footer#site-footer {
   margin: 0 -45px;
@@ -1475,28 +1529,31 @@ footer#site-footer {
   color: white; }
   footer#site-footer a {
     color: white; }
-footer #mma-copyright h3 {
+  footer#site-footer ul {
+    padding-left: 0;
+    padding-bottom: 15px; }
+  footer#site-footer li {
+    display: inline;
+    margin: 5px 10px; }
+footer .widget_nav_menu {
+  margin-left: 20px; }
+
+#mma-copyright h3 {
   text-align: center;
   margin-top: 5px;
   color: white; }
-footer #top-page-link {
+
+#top-page-link {
   float: right;
   padding-right: 30px; }
-footer #dev-by {
+
+#dev-by {
   clear: both;
   text-align: center;
   margin-top: 15px;
   color: #f8f8f8; }
-  footer #dev-by a {
+  #dev-by a {
     color: #eee; }
-footer .widget_nav_menu {
-  margin-left: 20px; }
-footer ul {
-  padding-left: 0;
-  padding-bottom: 15px; }
-footer li {
-  display: inline;
-  margin: 5px 10px; }
 
 /* MEDIA STYLES */
 /*********** MEDIA QUERIES FOR VERY SMALL SCREENS ****/

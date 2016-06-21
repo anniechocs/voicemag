@@ -16,14 +16,14 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 				<div class="col-md-<?php echo $main_column_size; ?> content-area" id="main-column">
 					<main id="main" class="site-main" role="main">
 						<?php 
-						while (have_posts()):
+						while (have_posts()) {
 							the_post();
 
 
 							// get_template_part('content', get_post_format());
 							// insted of loading "the_content()" which gives default Events page-
 
-							get_template_part( 'template-parts/content', 'event' );
+							get_template_part( 'template-parts/content', 'location' );
 
 							echo "\n\n";
 							
@@ -36,9 +36,10 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 								comments_template();
 							}
 
-							echo "\n\n"; ?>
+							echo "\n\n";
 
-						<?php  endwhile;	?> 
+						} //endwhile;
+						?> 
 					</main>
 				</div>
 <?php get_sidebar('right'); ?> 

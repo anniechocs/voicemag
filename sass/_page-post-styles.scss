@@ -27,9 +27,9 @@
 /*************** P O S T S ****************/
 
 /* Don't show meta data on posts or comments*/
-.entry-meta, .entry-meta-category-tag, #comments {
-    display: none;
-}
+//.entry-meta, .entry-meta-category-tag, #comments {
+//    display: none;
+//}
 
 
 /*************  CATEGORY (archive) PAGES ***********/
@@ -50,3 +50,22 @@
     }
 }
 
+/******* POST FOOTER *************/
+
+.post-footer{
+   @include grey-box; 
+    margin: 20px 0;
+    h4 {
+        margin-left: 20px;
+    }
+}
+
+ul.see-also {
+    @include plain-list;
+}
+
+.also-whatson {
+        li a:before {
+        content: 'What\'s On ';
+    }
+}

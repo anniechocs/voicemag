@@ -20,7 +20,7 @@
 					'posts_per_page'=>3,
 				'post_type'=>'post',
 				'order'=>'ASC',
-				'tag' => 'featured',
+				'category' => 'feature',
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'area',
@@ -37,10 +37,10 @@
 	               
 	                		while ( $query2->have_posts() ):
 										$query2->the_post();
-										$categories = get_the_category();	
+										$posttags = get_the_tags();
 										$heading = 'News';									 
-										if ( ! empty( $categories ) ) {
-										    $heading = esc_html( $categories[0]->name );   
+										if ( ! empty( $posttags) ) {
+										    $heading = esc_html( $posttags[0]->name );   
 										}
 										if ( $heading == 'Uncategorised' ) {
 										    $heading = 'News';   
