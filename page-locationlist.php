@@ -30,6 +30,8 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 			$taxterm = get_the_terms( get_the_ID(), 'area');									 
 		if ( ! empty( $taxterm ) ):
 		   get_template_part( 'template-parts/content', 'locationlist-area' );
+ 			bootstrapBasicPagination();
+
 		else:
 			get_template_part( 'template-parts/content', 'locationlist' );
 		endif;
@@ -37,7 +39,6 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 		endwhile;
 
 		?>	
-
 
 					</main>
 				</div>

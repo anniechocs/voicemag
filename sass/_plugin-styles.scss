@@ -123,10 +123,15 @@ table.em-calendar {
     display: block;
     margin: auto;
 }
+.event-notes{
+    margin-bottom: 20px;
+}
+
+/******* EM LOCATIONS *****/
 
 .css-locations-list{
     @include clearfix;
-    
+    @include plain-list;
 }
 
 .em-pagination{
@@ -144,6 +149,28 @@ table.em-calendar {
             background-color: $contr-lt;
         }
     }
+}
+
+.location-list {
+    @include plain-list;
+    li {
+        font-size: 1em;
+    }
+}
+#em-wrapper {
+    padding: 15px;
+}
+
+h2.location-list {
+    font-size: 1.8rem;
+}
+
+div.css-search div.em-search-main .em-search-submit {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    @include gradient($base-col, $base-md);
+    background-color: $base-md;
 }
 
 /* BREADCRUMBS WIHT NAVXT PLUGIN */

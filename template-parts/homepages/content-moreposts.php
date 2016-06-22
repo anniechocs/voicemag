@@ -2,11 +2,11 @@
 		<!-- Main home page-->		
 		<!-- find which homepage through custom field-->
      	<?php 
-     	$field = "Area";
-			$catField =  get_post_meta($post->ID, $field, true);
-				if ($catField != ''):
-					$area = $catField;
-				endif;
+   //   	$field = "Area";
+			// $catField =  get_post_meta($post->ID, $field, true);
+			// 	if ($catField != ''):
+			// 		$area = $catField;
+			// 	endif;
 		?>
 
 			<div class="row flex-row">	
@@ -17,7 +17,15 @@
 					'posts_per_page'=>6,
 				'post_type'=>'event',
 				'order'=>'ASC',
-				'event-categories' => $area,
+
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'event-tags',
+						//'taxonomy' => 'event-categories',
+						'field' => 'slug',
+						'terms' => array( 'featured' ),
+					)
+				),
 				'meta_query' => array(
 									array(
 									//	'key' => '_start_ts', change this to display until end-time
@@ -44,8 +52,8 @@
 										$EM_Event = em_get_event($post->ID, 'post_id');
 										?>
 
-					<?php include(locate_template('template-parts/cards/content-horizcard.php')); ?>
-										
+					<?php  include(locate_template('template-parts/cards/content-horizcard.php')); ?>
+					<?php // include(locate_template('template-parts/debug/content-vardump.php')); ?>					
 
 
 			<?php  endwhile;

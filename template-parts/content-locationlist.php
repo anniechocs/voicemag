@@ -40,7 +40,7 @@
 												 	<img src="<?php echo $url; ?>"> 
 												 </a>	
 												 <a class="feature-title" href="<?php the_permalink(); ?>" title="<?php echo the_title(); ?>" >	
-													<h2> <?php the_title() ?></h2>
+													<h2 class="location-list"> <?php the_title() ?></h2>
 												</a>
 												</div>
 											<?php endif; ?>	

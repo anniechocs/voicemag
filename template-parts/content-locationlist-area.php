@@ -25,7 +25,7 @@
 			<?php 
 
 				$args1 = array(
-					'posts_per_page'=> 50,
+					'posts_per_page'=> 100,
 					'post_type'=>'location',
 					'orderby' => 'title',
 					'order' => 'ASC',
@@ -104,5 +104,17 @@ if ( $children ) : ?>
 
 		<?php bootstrapBasicEditPostLink(); ?> 
 	</footer>
+
+			<?php
+		/**
+		 * This wp_link_pages option adapt to use bootstrap pagination style.
+		 * The other part of this pager is in inc/template-tags.php function name bootstrapBasicLinkPagesLink() which is called by wp_link_pages_link filter.
+		 */
+		wp_link_pages(array(
+			'before' => '<div class="page-links">' . __('Pages:', 'bootstrap-basic') . ' <ul class="pagination">',
+			'after'  => '</ul></div>',
+			'separator' => ''
+		));
+		?>
 <!-- 	<div class="clearfix"></div> -->
 </article><!-- #post-## -->

@@ -22,7 +22,9 @@
 }
 
 
-
+.entry-header {
+    margin-bottom: 20px;
+}
  
 /*************** P O S T S ****************/
 
@@ -48,6 +50,19 @@
             color: $base-col;
     }
     }
+}
+/******* PAGINATION ***********/
+
+.pagination > li {
+     > a,  > span {
+    color: $base-col;
+}
+}
+    .pagination > .active {
+        > a,  > a:focus,  > a:hover,   span, span:focus,  > span:hover {
+    background-color:$base-col;
+    border-color:$base-col;
+        }
 }
 
 /******* POST FOOTER *************/

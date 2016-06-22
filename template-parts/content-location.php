@@ -41,7 +41,7 @@
 
 
 	<div  class="row">
-		<section class="event-notes big-list">
+		<section class="event-notes location-list">
 			<h2>Upcoming Events</h2>
 				<?php echo $EM_Location->output('#_LOCATIONNEXTEVENTS'); ?> 
 

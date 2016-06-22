@@ -276,15 +276,15 @@ img {
 }
 
 .feature-card{
-    margin: -5px;
+    margin: 0 -5px;
     position: relative;
     float: left;
     border-radius: 4px;
     @media (min-width: $screen-sm-min) { 
-       margin: 0;
+     //  margin: 0;
         }  
     @media (min-width: $screen-md-min ) { 
-       margin: 5;
+     //  margin: -5px;
         } 
     .feature-img-holder{
        // border-top: 4px solid $base-col;
@@ -376,12 +376,7 @@ dt,dd {
     }
 }
 
-.location-list {
-    @include plain-list;
-    li {
-        font-size: 1em;
-    }
-}
+
 
 ul.button-list{
       li{

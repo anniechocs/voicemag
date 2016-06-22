@@ -101,7 +101,7 @@ body {
 h1 {
   font-family: Rockwell, 'Courier Bold',  Georgia, Times, 'Times New Roman', serif;
   font-size: 3.5rem;
-  color: #555; }
+  color: #000; }
 
 h2 {
   color: #678234;
@@ -402,19 +402,13 @@ img {
   margin: 0 20px; }
 
 .feature-card {
-  margin: -5px;
+  margin: 0 -5px;
   position: relative;
   float: left;
   border-radius: 4px;
   -webkit-box-shadow: 2px 2px 5px -4px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 2px 2px 5px -4px rgba(0, 0, 0, 0.2);
   box-shadow: 2px 2px 5px -4px rgba(0, 0, 0, 0.2); }
-  @media (min-width: 768px) {
-    .feature-card {
-      margin: 0; } }
-  @media (min-width: 992px) {
-    .feature-card {
-      margin: 5; } }
   .feature-card .feature-img-holder {
     width: 100%;
     border-radius: 4px; }
@@ -476,15 +470,6 @@ img {
 .list-box li {
   padding: 0 0 5px 0;
   font-size: 0.85em; }
-
-.location-list ul {
-  margin-left: 10px;
-  padding-left: 10px; }
-.location-list li {
-  list-style: none;
-  padding: 0 0 5px 0; }
-.location-list li {
-  font-size: 1em; }
 
 ul.button-list li {
   list-style: none;
@@ -1325,6 +1310,9 @@ ul.header-mag-list {
 #main-column .post, #main-column .page {
   border: 0 solid #eee; }
 
+.entry-header {
+  margin-bottom: 20px; }
+
 /*************** P O S T S ****************/
 /* Don't show meta data on posts or comments*/
 /*************  CATEGORY (archive) PAGES ***********/
@@ -1338,6 +1326,14 @@ ul.header-mag-list {
   margin: 0; }
   .archive-list article header h1 a, .archive-list h1.entry-title a {
     color: #678234; }
+
+/******* PAGINATION ***********/
+.pagination > li > a, .pagination > li > span {
+  color: #678234; }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active span, .pagination > .active span:focus, .pagination > .active > span:hover {
+  background-color: #678234;
+  border-color: #678234; }
 
 /******* POST FOOTER *************/
 .post-footer {
@@ -1497,10 +1493,20 @@ table.em-calendar {
   display: block;
   margin: auto; }
 
+.event-notes {
+  margin-bottom: 20px; }
+
+/******* EM LOCATIONS *****/
 .css-locations-list:after {
   content: "";
   display: table;
   clear: both; }
+.css-locations-list ul {
+  margin-left: 10px;
+  padding-left: 10px; }
+.css-locations-list li {
+  list-style: none;
+  padding: 0 0 5px 0; }
 
 .em-pagination {
   display: block;
@@ -1514,6 +1520,31 @@ table.em-calendar {
     font-size: 1.2em; }
     .em-pagination .page-numbers.current {
       background-color: #e5e89e; }
+
+.location-list ul {
+  margin-left: 10px;
+  padding-left: 10px; }
+.location-list li {
+  list-style: none;
+  padding: 0 0 5px 0; }
+.location-list li {
+  font-size: 1em; }
+
+#em-wrapper {
+  padding: 15px; }
+
+h2.location-list {
+  font-size: 1.8rem; }
+
+div.css-search div.em-search-main .em-search-submit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #678234;
+  background: -webkit-gradient(linear, left top, left bottom, from(#678234), to(#8db147));
+  background: -webkit-linear-gradient(top, #678234, #8db147);
+  background: linear-gradient(to bottom, #678234, #8db147);
+  background-color: #8db147; }
 
 /* BREADCRUMBS WIHT NAVXT PLUGIN */
 .breadcrumbs {

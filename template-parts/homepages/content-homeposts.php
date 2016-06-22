@@ -20,15 +20,21 @@
 					'posts_per_page'=>3,
 				'post_type'=>'event',
 				'order'=>'ASC',
-				'event-categories' => 'featured',
+				//'event-tag' => 'featured',
 				'tax_query' => array(
+					array(
+						'taxonomy' => 'event-tags',
+						//'taxonomy' => 'event-categories',
+						'field' => 'slug',
+						'terms' => array( 'featured' ),
+					),
 					array(
 						'taxonomy' => 'area',
 						'field' => 'slug',
 						'terms' => $area,
-						//'terms' => array( 'monmouth', 'ross','chepstow' )
 					)
 				),
+
 				'meta_query' => array(
 									array(
 									//	'key' => '_start_ts', change this to display until end-time

@@ -39,7 +39,7 @@
 				<a href="<?php the_permalink(); ?>" title="<?php echo the_title(); ?>" >
 					<h3> <?php the_title() ?> </h3>
 				</a>
-				<?php the_excerpt(); ?> 
+				<?php echo $EM_Event->output('#_EVENTEXCERPT'); ?> 
 
 				<a  class="read-more" href="<?php the_permalink(); ?>" >
 					read more...
