@@ -46,8 +46,42 @@ if (!function_exists('bootstrapBasicGetMainColumnSize')) {
 	}// bootstrapBasicGetMainColumnSize
 }
 
+if (!function_exists('bootstrapBasicPostOn')) {
+	/**
+	* This over-rides the function of the same name in the parent theme
+	 * which is found in bootsrap-basic/inc/template-tags.php
+	 * display post date/time but NOT author
+	 * 
+	 * @return string
+	 */
+	function bootstrapBasicPostOn() 
+	{
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		if (get_the_time('U') !== get_the_modified_time('U')) {
+			$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf($time_string,
+			esc_attr(get_the_date('c')),
+			esc_html(get_the_date()),
+			esc_attr(get_the_modified_date('c')),
+			esc_html(get_the_modified_date())
+		);
+
+		printf(__('<span class="posted-on">Posted on %2$s</span>', 'bootstrap-basic'),
+			//sprintf('<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+			//	esc_url(get_permalink()),
+				esc_attr(get_the_time()),
+				$time_string
+			);
+
+	}// bootstrapBasicPostOn
+}
+
 function register_new_menu() {
   register_nav_menu('whats-on',__( 'Whats On' ));
 }
 add_action( 'init', 'register_new_menu' );
+
+
 

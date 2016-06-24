@@ -94,8 +94,74 @@ h4.event-datetime{
 //    }
 //}
 
-table.em-calendar td.eventful a, table.em-calendar td.eventful-today a {
-	color: $base-md;
+/********* CALENDAR STYLES ***********/
+
+// styles for full width page template
+#main.site-main.fullwidth-page {
+    
+}
+
+.fullcalendar thead {     
+        font-size: 1.4em;
+        color: $vltgrey;
+    background-color: $base-col;
+    color: $vltgrey;
+    margin-bottom: -4px;
+    border-bottom: 4px solid $base-dk;
+    a {
+        color: $vltgrey;
+        font-size: 1.6em;
+        font-weight: normal;
+        padding: 15px;
+        text-align: center;
+    }
+    .em-calnav-prev{
+        padding: 10px 20px;
+        float: left;
+    }
+    .em-calnav-next {
+        padding: 10px 20px;
+        float:right;  
+    }
+    .month_name {
+        font-size: 1.6em;
+        font-weight: normal;
+        padding: 15px;
+        text-align: center;
+    }
+}
+.em-calendar td {
+    @include plain-list;
+    ul {
+        margin: 0 0 5px 0;
+        padding: 0;
+        li{
+            padding: 0 0 0 5px;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-size: 0.9em;
+            a.cal-cell {
+                background-color: white;
+                display: block;
+                width: 100%;
+                background-color: rgba(255,255,255,0.8);
+            }
+        }
+    }
+}
+
+table.em-calendar td.eventful, table.em-calendar td.eventful-today  {
+    padding: 3px 0;
+	a {
+        color: $base-md;
+    }
+    li a {
+        padding-left: 2px;
+        color: black; //$base-col;
+        &:hover {
+            color: $base-md;
+        }
+    }
 }
 
 table.em-calendar {
@@ -157,9 +223,9 @@ table.em-calendar {
         font-size: 1em;
     }
 }
-#em-wrapper {
-    padding: 15px;
-}
+//#em-wrapper {
+//    padding: 15px;
+//}
 
 h2.location-list {
     font-size: 1.8rem;

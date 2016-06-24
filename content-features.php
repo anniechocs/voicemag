@@ -2,12 +2,6 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-		<?php  if ('post' == get_post_type()) { ?> 
-		 <div class="entry-meta"> 
-			<?php 
-			 bootstrapBasicPostOn(); ?> 
-			 </div><!-- .entry-meta -->
-		<?php  } //endif; ?> 
 	</header><!-- .entry-header -->
 
 	
@@ -18,6 +12,17 @@
 	</div><!-- .entry-summary -->
 	<?php } else { ?> 
 	<div class="entry-content">
+		<?php if ( has_post_thumbnail() ):
+			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+
+			<a href="<?php the_permalink(); ?>" title="<?php echo the_title(); ?>" >
+			   	<div class="flex-img-holder">
+					<img class="card-thmb-horiz" src="<?php echo $url; ?>"> 
+				</div>
+			</a>
+
+		<?php endif; ?>
+			
 		<?php the_content(bootstrapBasicMoreLinkText()); ?> 
 		<div class="clearfix"></div>
 		<?php 

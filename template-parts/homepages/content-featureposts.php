@@ -19,8 +19,9 @@
 				$args2 = array(
 					'posts_per_page'=>3,
 				'post_type'=>'post',
-				'order'=>'ASC',
-				'category' => 'feature',
+				'order'=>'DESC',
+				//'category' => 'feature',
+				'tag' => 'front-page',
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'area',
@@ -39,17 +40,20 @@
 										$query2->the_post();
 										$posttags = get_the_tags();
 										$heading = 'News';									 
-										if ( ! empty( $posttags) ) {
-										    $heading = esc_html( $posttags[0]->name );   
+										if( has_term( 'competitions', 'category' ) )  {
+										    $heading = 'Competition';   
 										}
-										if ( $heading == 'Uncategorised' ) {
-										    $heading = 'News';   
+										if( has_term( 'music', 'category' ) )  {
+										    $heading = 'Music';   
 										}
+										if( has_term( 'theatre', 'category' ) || has_term( 'film', 'category' ) )  {
+										    $heading = 'Film and Theatre';   
+										}										
 										?>
 
 										<section class="vert-card em-card">
 											<div class="card-head">	
-												<h4 class="category"><?php echo $heading; ?></h4>
+												<h4 class="category"><?php  echo $heading; ?></h4>
 										 	</div>
 										 	<div class="flex-grow">									 		
 									     	<?php 
