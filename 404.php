@@ -11,8 +11,7 @@
 								<p><?php _e('It looks like nothing was found at this location; this may have happened because you were automatically redirected from our old website. <br>Go to our Welcome Page or try one of the links below.', 'bootstrap-basic'); ?></p>
 
 
-
-								<a class="btn btn-general" href="http://magorministryarea.org.uk/">Welcome Page</a>
+								<a class="btn btn-general" href="<?php echo esc_url(home_url('/')); ?>">Home Page</a>
 								<p><br><br></p>
 
 								<!--search form-->

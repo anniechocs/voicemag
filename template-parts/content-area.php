@@ -35,14 +35,16 @@
 		<h4>See also:</h4>
 
 <?php
-if ( $post->post_parent ) {
+// if ( $post->post_parent ) {
     $children = wp_list_pages( array(
         'title_li' => '',
-        'child_of' => $post->post_parent,
+        'meta_key'   => 'page-type', 
+  		'meta_value' => 'area-home',
+      //  'child_of' => $post->post_parent,
         'exclude' => $post->ID,
         'echo'     => 0
     ) );
-} 
+// } 
  
 if ( $children ) : ?>
     <h2><?php echo $title; ?></h2>

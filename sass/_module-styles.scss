@@ -343,6 +343,10 @@ img {
     }
 }
 
+.plain-list {
+    @include plain-list;
+}
+
 /* DEFINITION LISTS */
 
 .inline-deflist{

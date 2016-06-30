@@ -12,3 +12,41 @@
     }
     }
 }
+
+
+/********** BACKGROUND COLOUR FIXES *****/
+
+//    background:  linear-gradient(white,rgba(255,255,255,1)), $bgcolour;
+//    background-repeat: no-repeat;
+//    background-position: center 0;
+//    $inner-bg: $screen-sm-min;
+//    background-size: $inner-bg 100%;
+
+body {
+  @media (min-width: $screen-sm-min) {
+    $inner-bg: $screen-sm-min + 40px;
+    background-size: $inner-bg 100%;
+  }
+  @media (min-width: $screen-md-min) {
+    $inner-bg: $screen-md-min + 40px;
+    background-size: $inner-bg 100%;
+  }
+  @media (min-width: $screen-lg-min) {
+    $inner-bg: $screen-lg-min + 60px;
+    background-size: $inner-bg 100%;
+  }
+}
+
+footer#site-footer {
+@media (min-width: $screen-sm-min) {
+margin: 0 -30px;
+}
+@media (min-width: $screen-md-min) {
+margin: 0 -45px;
+    padding: 0 45px;
+}
+@media (min-width: $screen-lg-min) {
+margin: 0 -60px;
+padding: 0 60px;
+}
+}

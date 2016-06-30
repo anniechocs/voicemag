@@ -3,7 +3,9 @@
 	<div class="entry-content">
 		<section class="horiz-card em-card">	
 			<?php 	if ( has_post_thumbnail() ):
-					$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>										
+					$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+					endif; 
+					if ($url != ''): ?>										
 				<div class="card-left">	
 
 						<?php list($width, $height) = getimagesize($url);
@@ -17,6 +19,7 @@
 							</div>
 						<?php endif;	?>				
 		 		</div>
+
 		 	<div class="card-right">
 				<a href="<?php the_permalink(); ?>" title="<?php echo the_title(); ?>" >
 					<h3> <?php the_title() ?> </h3>

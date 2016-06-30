@@ -78,10 +78,42 @@ if (!function_exists('bootstrapBasicPostOn')) {
 	}// bootstrapBasicPostOn
 }
 
-function register_new_menu() {
-  register_nav_menu('whats-on',__( 'Whats On' ));
+// function register_new_menu() {
+//   register_nav_menu('whats-on',__( 'Whats On' ));
+// }
+// add_action( 'init', 'register_new_menu' );
+
+function register_new_menus() {
+register_nav_menus( array(
+	'header' => 'Header Menu',
+	'footer-one' => 'Footer Menu One',
+	'footer-three' => 'Footer Menu Three',
+	'footer-two' => 'Footer Menu Two',
+	'footer-four' => 'Footer Menu Four',
+) );
 }
-add_action( 'init', 'register_new_menu' );
+add_action( 'init', 'register_new_menus' );
 
+// // My function to display a menu with it's header
+// function ild_header_menu($location){
+// 		$menu_location = $location;
+// 		$menu_locations = get_nav_menu_locations();
+// 		$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+// 		$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+// 		echo '<h3>' . esc_html($menu_name) . '</h3>';
+// 		wp_nav_menu( array( 'theme_location' => $location ) );
+// }
 
-
+// My function to display a menu with it's header
+function ild_header_menu($location){
+		$menu_location = $location;
+		$menu_locations = get_nav_menu_locations();
+		$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+		$menu_name = (isset($menu_object->name) ? $menu_object->name : ''); 
+		// echo  '<h3>' . esc_html($menu_name) . '</h3>';?>
+		<div class="col-lg-2 col-sm-3 col-xs-6 footer-menu">
+			<h3><?php echo esc_html($menu_name) ?></h3>
+			<?php wp_nav_menu( array( 'theme_location' => $location, 'fallback_cb' => FALSE, ) ); ?>
+		</div>
+<?php
+}

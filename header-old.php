@@ -29,33 +29,28 @@
 			<header role="banner">
 
 			<div class="row" id="header-container">
-				
-				<div class="col-sm-4 header-picture">
-					<div class="row">
-						<div class="col-sm-12 col-xs-6 exsmall logo-box">
+				<div class="header-picture">
+				<div class="logo-box">
 						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-							<img id="header-image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/voice-logo.png" alt="The Voice Magazines logo" width="100%">
+							<img id="site-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/Voice-Magazines-Logo-White.png" alt="The Voice Magazines logo">
 						</a>
+						<div class="site-description whats-on-menu">
+								<?php // bloginfo('description'); ?> 
+							<ul class="header-mag-list">
+								<li>Ross Voice</li>
+								<li>Monnow Voice</li>
+								<li>Chepstow &amp; Forest Voice</li>
+							</ul>
+
 						</div>
-						<div class="col-sm-12 col-xs-6 exsmall">
-							<div id="title-branding">
-<!-- 								<h1 class="site-title-heading">
-									<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-								</h1> -->
-								<div class="site-description whats-on-menu">
-										<?php // bloginfo('description'); ?> 
-										<?php wp_nav_menu( array( 'theme_location' => 'whats-on' ) ); ?>
-								</div>
-							</div>
-						</div> 
-					</div>
 				</div>
+			</div>
 
-				<div class="col-sm-8" id="banner-container">
-					<img id="banner" src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner.jpg" alt="photo of the Wye valley" width="100%">
+				
+					
 
 
-						<nav class="navbar navbar-default" role="navigation">
+			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
 					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-primary-collapse">
@@ -76,15 +71,10 @@
 					<?php dynamic_sidebar('navbar-right'); ?> 
 				</div><!--.navbar-collapse-->
 			</nav>		
-				</div><!-- banner -->
+				
 
 		</div> <!-- end header container .row -->
 
-		<div class="row main-navigation">
-		<div class="col-xs-12">
-
-		</div>
-	</div><!--.main-navigation-->
 
 		</header>
 			

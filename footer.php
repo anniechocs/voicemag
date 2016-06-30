@@ -10,22 +10,32 @@
 			
 			
 			<footer id="site-footer" class="row" role="contentinfo">
-				<div id="footer-row" class="site-footer">
-					<div id="mma-copyright">
-						<h3><?php bloginfo('name'); ?> &copy; <?php echo date("Y") ?></h3>
-					</div>
+				<div id="footer-inner">
 
-					<div class="col-md-6 footer-left">
-						<?php dynamic_sidebar('footer-left'); ?> 
+				<div id="top-page-link"><a href="#">Top of page</a></div>
+
+				<div class="row site-footer">
+
+							<?php ild_header_menu('footer-one') ?>
+
+							<?php ild_header_menu('footer-two') ?>
+
+							<?php ild_header_menu('footer-three') ?>
+
+							<?php ild_header_menu('footer-four') ?>
+
+
+				</div>
+				<div  class="site-footer">
+
+					<div class="bottom-line">
+						<ul>
+							<li id="copyright"><?php bloginfo('name'); ?> &copy; <?php echo date("Y") ?></li>
+							<li>website development: <a href="mailto:info@indigoleafdesign.co.uk">Indigo Leaf Design </a> </li>
+						</ul>									
 					</div>
-					<div class="col-md-6 footer-right text-right">
-						<?php dynamic_sidebar('footer-right'); ?> 
-						<div id="top-page-link"><a href="#">Top of page</a></div>
-					<div class="clearfix"></div>
-					</div>
-					<div id="dev-by">
-						<p>website development: <a href="mailto:info@indigoleafdesign.co.uk"> info@indigoleafdesign.co.uk </a> </p>
-					</div>
+				</div>	
+				
 				</div>
 			</footer>
 		</div><!--.container page-container-->

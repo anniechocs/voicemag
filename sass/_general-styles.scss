@@ -20,18 +20,18 @@ body {
     background-position: center 0;
     $inner-bg: $screen-sm-min;
     background-size: $inner-bg 100%;
-  @media (min-width: $screen-sm-min) {
-    $inner-bg: $screen-sm-min + 40px;
-    background-size: $inner-bg 100%;
-  }
-  @media (min-width: $screen-md-min) {
-    $inner-bg: $screen-md-min + 40px;
-    background-size: $inner-bg 100%;
-  }
-  @media (min-width: $screen-lg-min) {
-    $inner-bg: $screen-lg-min + 60px;
-    background-size: $inner-bg 100%;
-  }
+//  @media (min-width: $screen-sm-min) {
+//    $inner-bg: $screen-sm-min + 40px;
+//    background-size: $inner-bg 100%;
+//  }
+//  @media (min-width: $screen-md-min) {
+//    $inner-bg: $screen-md-min + 40px;
+//    background-size: $inner-bg 100%;
+//  }
+//  @media (min-width: $screen-lg-min) {
+//    $inner-bg: $screen-lg-min + 60px;
+//    background-size: $inner-bg 100%;
+//  }
 }
 
 h1 {

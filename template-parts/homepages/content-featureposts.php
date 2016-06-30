@@ -39,7 +39,10 @@
 	                		while ( $query2->have_posts() ):
 										$query2->the_post();
 										$posttags = get_the_tags();
-										$heading = 'News';									 
+										$heading = 'News';	
+							 			if( has_term( 'community-news', 'category' ) )  {
+										    $heading = 'Community News';   
+										}
 										if( has_term( 'competitions', 'category' ) )  {
 										    $heading = 'Competition';   
 										}
@@ -48,7 +51,10 @@
 										}
 										if( has_term( 'theatre', 'category' ) || has_term( 'film', 'category' ) )  {
 										    $heading = 'Film and Theatre';   
-										}										
+										}		
+										if( has_term( 'art', 'category' ) )  {
+										    $heading = 'Art';   
+										}								
 										?>
 
 										<section class="vert-card em-card">

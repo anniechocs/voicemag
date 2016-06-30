@@ -10,13 +10,15 @@
 		<div class="row feature-row">	
 
 			<?php 
-				$this_page_id=$wp_query->post->ID; 
+				//$this_page_id=$wp_query->post->ID; 
 				$args1 = array(
 				'posts_per_page'=>3,
 				'post_type'=>'page',
 				'order'=>'ASC',
 				'orderby'=>'name',
-				'post_parent'=>$this_page_id,
+				'meta_key'   => 'page-type', 
+  				'meta_value' => 'area-home',
+				//'post_parent'=>$this_page_id,
 				);
 			?>
 

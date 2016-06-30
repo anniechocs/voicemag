@@ -63,8 +63,10 @@
 
 /********* EVENTS MANAGER STYLES *********/
 
-#sidebar-right .widget.widget_em_widget{
+#sidebar-right  {
+ .widget.widget_em_widget,  .widget.widget_agem_widget {
     @include sub-list-styles;
+}
 }
 
 #comments{
@@ -83,22 +85,90 @@ h4.event-datetime{
     padding: 10px;
 }
 
-//.em-card{
-//    .card-head a{
-//        display: inline-block;
-//        min-height: 5rem;
-//        h3{
-//            margin-bottom: 3px;
-//            font-size: 1.5rem;
-//        }
-//    }
-//}
+// Event Categories List
+
+@mixin eventcat-list {
+     @include plain-list;
+        li{
+            display: inline-block;
+            padding: 0 0 0 5px;
+            margin-bottom: 5px;
+            > a {
+                padding: 5px;
+                background-color: white;
+                display: block;
+                width: 100%;
+                background-color: rgba(255,255,255,0.8);
+                color: black;
+                &:hover {
+                    color: $base-md;
+                }
+            }
+        } 
+}
+
+ul.eventcat-list {
+    display: inline;
+    padding: 0;
+    @include eventcat-list;
+    li {
+        margin: 5px;
+        > a {
+            padding: 10px 10px 10px 5px;
+        }
+    }
+    > p {
+        display: inline-block;
+        width: 5px;
+    }
+}
 
 /********* CALENDAR STYLES ***********/
 
-// styles for full width page template
-#main.site-main.fullwidth-page {
-    
+table.em-calendar td.eventful, table.em-calendar td.eventful-today  {
+padding: 0;
+	 a {
+        color: $base-md;
+    }
+}
+
+.em-calendar td {
+    padding: 0;
+    @include plain-list;
+    ul {
+        margin: 0 0 5px 0;
+        padding: 0;
+        @include eventcat-list;
+                li  > a.cal-cell {
+            line-height: 1.2;
+                    min-height: 20px;
+            font-size: 0.9em;
+            padding-left: 2px;    
+            color: black;
+            &:hover {
+            color: $base-md;
+        }
+        }
+    }
+
+}
+
+@media (max-width: 600px) {  
+ .em-calendar td ul li{
+            padding: 0 0 0 10px;
+            display: block;
+            min-height: 1rem;
+        }
+ li > a.cal-cell{
+        padding-left: 10px;
+        background-color:rgba(255,255,255,0.99);
+                 display: block;
+            min-height: 1rem;
+        span {
+            display: none;
+            margin-left: 5px;
+        }
+    }
 }
 
 .fullcalendar thead {     
@@ -130,39 +200,8 @@ h4.event-datetime{
         text-align: center;
     }
 }
-.em-calendar td {
-    @include plain-list;
-    ul {
-        margin: 0 0 5px 0;
-        padding: 0;
-        li{
-            padding: 0 0 0 5px;
-            margin-bottom: 5px;
-            line-height: 1.2;
-            font-size: 0.9em;
-            a.cal-cell {
-                background-color: white;
-                display: block;
-                width: 100%;
-                background-color: rgba(255,255,255,0.8);
-            }
-        }
-    }
-}
 
-table.em-calendar td.eventful, table.em-calendar td.eventful-today  {
-    padding: 3px 0;
-	a {
-        color: $base-md;
-    }
-    li a {
-        padding-left: 2px;
-        color: black; //$base-col;
-        &:hover {
-            color: $base-md;
-        }
-    }
-}
+
 
 table.em-calendar {
     @include responsive-table;
